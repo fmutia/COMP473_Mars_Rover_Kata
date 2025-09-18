@@ -1,5 +1,5 @@
-from plateau import Plateau
-from rover import Rover
+from src.plateau import Plateau
+from src.rover import Rover
 
 def run_simulation(input_str: str) -> str:
     lines = input_str.strip().splitlines()

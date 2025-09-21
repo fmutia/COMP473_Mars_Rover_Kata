@@ -87,9 +87,6 @@ python src/main_enhanced.py --visual --speed 1.2
 
 # Faster animation
 python src/main_enhanced.py --visual --speed 0.3
-
-# Visual simulation with custom input file
-python src/main_enhanced.py --file mission.txt --visual
 ```
 
 **Example Visual Output:**

@@ -1,7 +1,7 @@
 import sys, os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
-from src.main import run_simulation
+from main import run_simulation
 
 
 class TestIntegration:

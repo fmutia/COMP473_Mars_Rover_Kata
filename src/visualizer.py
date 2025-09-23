@@ -34,10 +34,10 @@ class Colors:
 class MarsRoverVisualizer:
     def __init__(self, plateau: Plateau, delay: float = 0.5):
         self.plateau = plateau
-        self.rovers = []
+        self.rovers: list = []
         self.delay = delay
         self.rover_colors = [Colors.RED, Colors.BLUE, Colors.GREEN, Colors.MAGENTA, Colors.CYAN]
-        self.rover_trails = []  # Store trails for each rover
+        self.rover_trails: list = []  # Store trails for each rover
 
     def add_rover(self, rover: Rover) -> int:
         """Add a rover to the visualization and return its ID"""

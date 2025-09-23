@@ -13,13 +13,24 @@ COMP473_Mars_Rover_Kata/
 │   └── ADR.md                     # Architecture Decision Records
 ├── src/
 │   ├── __init__.py                # Package initialization
-│   ├── plateau.py                 # Plateau class
-│   ├── rover.py                   # Basic Rover class
 │   ├── main.py                    # Original simulation
 │   ├── enhanced_rover.py          # Advanced rover with collision detection
 │   ├── visualizer.py              # TUI visualization system
 │   ├── interactive_mode.py        # Interactive rover control
 │   └── main_enhanced.py           # Enhanced CLI interface
+│   ├── hexrover/                  # New Hexagonal Core
+│   │   ├── __init__.py
+│   │   ├── ports.py               # Port: Navigator protocol + Position/Heading value objects
+│   │   ├── domain.py              # Core business logic: Rover applies L/R/M via a Navigator
+│   │   ├── adapters/
+│   │   │   ├── __init__.py
+│   │   │   ├── grid_nav.py        # Plateau + GridNavigator: bounds & movement policy
+│   │   │   ├── collision_nav.py   # Collision policy adapter
+│   │   │   └── visualizer_controller.py  # Helpers used by visualizer (format-safe)
+│   │   └── compat/
+│   │       ├── __init__.py
+│   │       ├── plateau_compat.py  # Compatibility shim exposing legacy Plateau API → hex adapters
+│   │       └── rover_compat.py    # Compatibility shim exposing legacy Rover API → domain+adapters
 ├── tests/
 │   ├── __init__.py                # Test package initialization
 │   ├── test_plateau.py            # Plateau tests

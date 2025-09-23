@@ -1,7 +1,13 @@
 # src/interactive_mode.py
 import sys
-from plateau import Plateau
-from rover import Rover
+# OLD
+# from plateau import Plateau
+# from rover import Rover
+
+# NEW
+from hexrover.compat.plateau_compat import Plateau
+from hexrover.compat.rover_compat import Rover
+
 from visualizer import MarsRoverVisualizer, Colors
 
 

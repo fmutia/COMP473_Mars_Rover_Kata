@@ -1,6 +1,6 @@
 # src/enhanced_rover.py
 from typing import List, Optional, Set, Tuple
-from plateau import Plateau
+from hexrover.compat.plateau_compat import Plateau
 
 
 class EnhancedRover:

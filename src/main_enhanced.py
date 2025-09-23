@@ -1,25 +1,34 @@
 # src/main_enhanced.py
 import sys
 import argparse
-from plateau import Plateau
-from rover import Rover
+from typing import List
+
+from hexrover.compat.plateau_compat import Plateau
+from hexrover.compat.rover_compat import Rover
 from visualizer import visualize_simulation, Colors
 from interactive_mode import InteractiveRoverController
 
 
 def run_simulation(input_str: str) -> str:
-    """Original simulation function - non-visual"""
-    lines = input_str.strip().splitlines()
+    lines: List[str] = [ln.strip() for ln in input_str.strip().splitlines() if ln.strip()]
+    if not lines:
+        return ""
+
+    # plateau
     max_x, max_y = map(int, lines[0].split())
     plateau = Plateau(max_x, max_y)
 
-    results = []
+    results: List[str] = []
+    # process pairs: position line, commands line
     for i in range(1, len(lines), 2):
         x, y, heading = lines[i].split()
-        rover = Rover(int(x), int(y), heading, plateau)
-        commands = lines[i + 1].strip()
+        rover = Rover(int(x), int(y), heading.upper(), plateau)
+
+        commands = lines[i + 1].strip().upper()
         rover.execute_commands(commands)
-        results.append(rover.get_position())
+
+        # append as string "x y H" (legacy format)
+        results.append(str(rover))            # compat __str__ -> "x y H"
 
     return "\n".join(results)
 

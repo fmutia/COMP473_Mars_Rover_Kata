@@ -1,7 +1,7 @@
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from src.plateau import Plateau
+from hexrover.compat.plateau_compat import Plateau
 
 def test_plateau_bounds():
     plateau = Plateau(5, 5)

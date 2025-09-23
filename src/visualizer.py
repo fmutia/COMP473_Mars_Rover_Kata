@@ -3,8 +3,14 @@ import time
 import os
 import sys
 from typing import List, Tuple
-from plateau import Plateau
-from rover import Rover
+
+# OLD
+# from plateau import Plateau
+# from rover import Rover
+
+# NEW
+from hexrover.compat.plateau_compat import Plateau
+from hexrover.compat.rover_compat import Rover
 
 
 class Colors:
@@ -148,7 +154,7 @@ class MarsRoverVisualizer:
 
         print(f"{Colors.BOLD}{Colors.GREEN}Final Rover Positions:{Colors.RESET}")
         for i, rover in enumerate(self.rovers):
-            print(f"  Rover {i + 1}: {rover.get_position()}")
+            print(f"  Rover {i + 1}: {rover}")
         print()
 
 

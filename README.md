@@ -48,7 +48,7 @@ COMP473_Mars_Rover_Kata/
 ```bash
 git clone <your-repo-url>
 cd COMP473_Mars_Rover_Kata
-pip install pytest pytest-cov flake8 black isort mypy
+pip install pytest pytest-cov flake8 mypy
 ```
 
 ### 2. Run Basic Simulation
@@ -331,12 +331,6 @@ $env:PYTHONPATH = "$env:PYTHONPATH;src"
 
 ### Code Quality Checks
 ```bash
-# Format code with black
-black src tests --check
-
-# Sort imports with isort
-isort --check-only src tests
-
 # Lint code with flake8
 flake8 src tests --max-line-length=127
 
@@ -351,9 +345,7 @@ pip install pytest pytest-cov flake8 black isort mypy
 
 # Run the full pipeline
 pytest tests/ -v --cov=src
-black --check src tests
 flake8 src tests --max-line-length=127
-isort --check-only src tests
 mypy src --ignore-missing-imports
 ```
 
